@@ -36,7 +36,7 @@ list:
 				{% assign list = page.list | sort: "judul" %}
 				{% for x in list %}
 					<a class="list-group-item" href="https://{{ x.heroku }}.herokuapp.com">
-						{{ x.judul }}<br>
+						<strong>{{ x.judul }}</strong><br>
 						<small>{{ x.deskripsi }}</small>
 					</a>
 				{% endfor %}
