@@ -1,9 +1,46 @@
+---
+list:
+  -
+    judul: Blog Zen
+    heroku: blogzen
+    deskripsi: Mantap
+---
+
 <!doctype html>
 <html>
 	<head>
 		<title>Zen Store</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		<link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+		<style>
+			* {
+				word-wrap: break-word;
+			}
+			
+			body {
+				padding-top: 70px;
+			}
+		</style>
 	</head>
 	<body>
-		
+		<div class="navbar navbar-default navbar-fixed-top">
+			<div class="container">
+				<div class="navbar-header">
+					<a href="#!" class="navbar-brand">Zen Store</a>
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<div class="list-group">
+				{% assign list = page.list | sort: "judul" %}
+				{% for x in list %}
+					<a class="list-group-item" href="https://{{ x.heroku }}.herokuapp.com">
+						{{ x.judul }}<br>
+						<small>{{ x.deskripsi }}</small>
+					</a>
+				{% endfor %}
+			</div>
+		</div>
 	</body>
 </html>
